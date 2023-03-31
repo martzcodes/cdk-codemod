@@ -1,0 +1,60 @@
+{
+  "name": "cdk-codemod",
+  "version": "0.0.1",
+  "description": "Collection of codemod scripts that help update AWS CDK from Version 1 to Version 2",
+  "keywords": [
+    "jscodeshift",
+    "transform",
+    "aws",
+    "cdk",
+    "typescript",
+    "v1",
+    "v2",
+    "migration"
+  ],
+  "homepage": "https://github.com/martzcodes/cdk-codemod",
+  "license": "MIT-0",
+  "author": {
+    "name": "Matt Martz",
+    "url": "http://martz.codes"
+  },
+  "contributors": [
+    "Matt Martz <matt.martz@gmail.com>"
+  ],
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "main": "dist/cli.js",
+  "types": "dist/cli.d.ts",
+  "bin": "bin/cdk-codemod",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/martzcodes/cdk-codemod.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint 'src/**/*.ts'",
+    "release": "yarn build && changeset publish",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "jscodeshift": "0.14.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node14": "^1.0.3",
+    "@types/jscodeshift": "^0.11.5",
+    "@types/node": "^14.18.42",
+    "@typescript-eslint/eslint-plugin": "^5.55.0",
+    "@typescript-eslint/parser": "^5.55.0",
+    "eslint": "^8.36.0",
+    "eslint-plugin-import": "^2.27.5",
+    "prettier": "2.8.3",
+    "tsx": "^3.12.1",
+    "typescript": "~5.0.2",
+    "vitest": "^0.29.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -1,0 +1,69 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`transformer > /Users/mattmartz/dev/cdk-codemod/src/transformers/__fixtures__/example.ts 1`] = `
+"import { App, Stack, StackProps } from \\"aws-cdk-lib\\";
+import { Construct } from \\"constructs\\";
+
+export class SomeConstruct extends Construct {
+  constructor(scope: Construct, id: string) {
+    super(scope, id);
+  }
+}
+
+const app = App();
+export class MyStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
+    super(scope, id, props);
+    new SomeConstruct(this, \\"SomeConstruct\\");
+  }
+}
+
+new MyStack(app, \\"MyStack\\");"
+`;
+
+exports[`transformer > /Users/mattmartz/dev/cdk-codemod/src/transformers/__fixtures__/example-named.ts 1`] = `
+"/* eslint-disable import/no-unresolved */
+import { App, Stack, StackProps } from \\"aws-cdk-lib\\";
+
+import { Construct } from \\"constructs\\";
+
+export class SomeConstruct extends Construct {
+  constructor(scope: Construct, id: string) {
+    super(scope, id);
+  }
+}
+
+const app = App();
+export class MyStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
+    super(scope, id, props);
+    new SomeConstruct(this, \\"SomeConstruct\\");
+  }
+}
+
+new MyStack(app, \\"MyStack\\");"
+`;
+
+exports[`transformer > /Users/mattmartz/dev/cdk-codemod/src/transformers/__fixtures__/example-with-bucket.ts 1`] = `
+"/* eslint-disable import/no-unresolved */
+import { Bucket } from \\"aws-cdk-lib/aws-s3\\";
+import { App, Stack, StackProps } from \\"aws-cdk-lib\\";
+import { Construct } from \\"constructs\\";
+
+export class SomeConstruct extends Construct {
+  constructor(scope: Construct, id: string) {
+    super(scope, id);
+    new Bucket(this, \\"MyBucket\\");
+  }
+}
+
+const app = App();
+export class MyStack extends Stack {
+  constructor(scope: Construct, id: string, props?: StackProps) {
+    super(scope, id, props);
+    new SomeConstruct(this, \\"SomeConstruct\\");
+  }
+}
+
+new MyStack(app, \\"MyStack\\");"
+`;
