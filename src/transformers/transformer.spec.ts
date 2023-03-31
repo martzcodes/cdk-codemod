@@ -4,7 +4,7 @@ import jscodeshift from "jscodeshift";
 import { describe, expect, it } from "vitest";
 import { listFiles } from "../utils/listFiles";
 
-import transformer from ".";
+import transformer from "./transformer";
 
 describe("transformer", () => {
   const paths = listFiles(path.resolve("src/transformers/__fixtures__"), [], ".ts");

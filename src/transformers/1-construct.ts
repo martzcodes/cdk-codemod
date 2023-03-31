@@ -8,7 +8,6 @@ export const construct = (
   // check to see if Construct is imported from @aws-cdk/core
   const constructImport = root.find(j.ImportDeclaration, {
     source: { value: "@aws-cdk/core" },
-    specifiers: [{ imported: { name: "Construct" } }],
   });
 
   // remove only the Construct import

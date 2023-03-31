@@ -5,6 +5,7 @@ import { construct } from "./1-construct";
 import { coreToBase } from "./2-core-to-base";
 import { submodulesToBase } from "./3-submodules-to-base";
 import { assertions } from "./4-assertions";
+import { unused } from "./5-unused";
 
 export const transformer = (file: FileInfo, api: API): string => {
   const j = api.jscodeshift.withParser("ts")
@@ -19,8 +20,10 @@ export const transformer = (file: FileInfo, api: API): string => {
   const submodulesToBaseFixed = submodulesToBase(j, coreToBaseFixed);
   // use assertions transformer with the output of submodulesToBase
   const assertionsFixed = assertions(j, submodulesToBaseFixed);
+  // use unused transformer with the output of assertions
+  const unusedFixed = unused(j, assertionsFixed);
 
-  return assertionsFixed.toSource();
+  return unusedFixed.toSource();
 };
 
 export default transformer;

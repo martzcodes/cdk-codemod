@@ -1,6 +1,6 @@
 {
   "name": "cdk-codemod",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Collection of codemod scripts that help update AWS CDK from Version 1 to Version 2",
   "keywords": [
     "jscodeshift",

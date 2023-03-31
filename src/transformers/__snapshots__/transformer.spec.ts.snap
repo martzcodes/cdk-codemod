@@ -67,3 +67,31 @@ export class MyStack extends Stack {
 
 new MyStack(app, \\"MyStack\\");"
 `;
+
+exports[`transformer > /Users/mattmartz/dev/cdk-codemod/src/transformers/__fixtures__/hackathon-tutorial-stack.ts 1`] = `
+"/* eslint-disable import/no-unresolved */
+import { Stack, StackProps } from \\"aws-cdk-lib\\";
+import { Table } from \\"aws-cdk-lib/aws-dynamodb\\";
+import config from 'config';
+import { HackathonTableConstruct } from './table-construct';
+
+import { Construct } from \\"constructs\\";
+
+export interface HackathonStackProps extends StackProps{
+  original?: HackathonTutorialStack;
+}
+
+export class HackathonTutorialStack extends Stack {
+  table: Table;
+
+  constructor(scope: Construct, id: string, props?: HackathonStackProps) {
+    super(scope, id, props);
+
+    const { namespace } = config.get<{ namespace: string }>('cdk');
+
+    const table = new HackathonTableConstruct(this, \`someTable\`);
+    this.table = table.table;
+
+  }
+}"
+`;
